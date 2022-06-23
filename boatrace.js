@@ -44,24 +44,38 @@ var rotateValue = circle.style.transform;
 console.log(rotateValue);
 var rotateSum;
 
+let x = 0;
 
-let memo = function (after_detail) {
-    
-    // const detail1 = document.getElementById("public_gumble");
-    const detail1 = document.getElementById("technics");
-    const detail2 = document.getElementById("Youtube");
-    const detail3 = document.getElementById("racer_profile");
-    const detail4 = document.getElementById("documents");
-    const details = [detail1, detail2, detail3];
-  
-        for (let num = 0; num < array.length; num++) {
-            let element = array[num];
-            after_detail = detail4.innerHTML = details[0].textContent;
-            return after_detail   
-        }
+let memo = function (num) {
+    //upButton：num = +1
+    //downButton：num = -1
+    const detail1 = document.getElementById("public_gumble");
+    const detail2 = document.getElementById("racer_profile");
+    const detail3 = document.getElementById("Youtube");
+    const detail4 = document.getElementById("technics");
+    const detail5 = document.getElementById("documents");
+    const details = [detail1, detail2, detail3, detail4];
+    x = x + num;
 
-    
+    if(x == 4){
+        x = 0
+    }else if(x == -1){
+        x = 3;
+    }
+
+    console.log(x);
+
+    detail5.innerHTML = details[x].textContent
+
+    // for (let num = 0; num < details.length; num++) {
+    //     let element = details[num];
+    //      detail4.innerHTML = element.textContent;
+    // }
 }
+
+//upを押したらdetails[]の中を+1
+//downを押したらdetails[]の中を-1
+//ただし0と3で連結させる
 
 upBtn.onclick = function () {
     // 時計回りに90度回転させる
@@ -70,8 +84,7 @@ upBtn.onclick = function () {
     rotateValue = rotateSum;
     console.log(rotateSum);
     console.log("ok");
-    // after_detail = "b"
-    nextdata = memo(after_detail);
+    memo(1);
 }
 
 downBtn.onclick = function () {
@@ -79,9 +92,5 @@ downBtn.onclick = function () {
     rotateSum = rotateValue + "rotate(90deg)";
     circle.style.transform = rotateSum;
     rotateValue = rotateSum;
+    memo(-1);
 }
-
-
-
-
-
