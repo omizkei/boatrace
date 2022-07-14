@@ -67,10 +67,7 @@ let memo = function (num) {
 
     detail5.innerHTML = details[x].textContent
 
-    // for (let num = 0; num < details.length; num++) {
-    //     let element = details[num];
-    //      detail4.innerHTML = element.textContent;
-    // }
+
 }
 
 //upを押したらdetails[]の中を+1
